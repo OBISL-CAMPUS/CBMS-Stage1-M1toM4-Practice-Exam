@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Stage 1 - Progress Exam - Module 1 to 4 - OBISL Campus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #2b303a;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+
+        /* Custom LMS Button Styles */
+        .btn-lms-green {
+            background: linear-gradient(180deg, #1b7e24 0%, #14631b 100%);
+            color: #ffffff;
+            font-weight: 600;
+            border: 1px solid #0f4c14;
+            border-radius: 4px;
+            padding: 8px 18px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        .btn-lms-green:hover, .btn-lms-green:active {
+            background: #14631b;
+        }
+
+        .btn-lms-blue-outline {
+            background-color: #ffffff;
+            border: 1px solid #0070f3;
+            color: #0070f3;
+            font-weight: 600;
+            border-radius: 4px;
+            padding: 8px 18px;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            cursor: pointer;
+        }
+        .btn-lms-blue-outline:hover {
+            background-color: #f0f7ff;
+        }
+
+        .btn-lms-blue-solid {
+            background-color: #0070f3;
+            border: 1px solid #005bb5;
+            color: #ffffff;
+            font-weight: 600;
+            border-radius: 4px;
+            padding: 8px 20px;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            cursor: pointer;
+        }
+        .btn-lms-blue-solid:hover {
+            background-color: #005bb5;
+        }
+
+        /* Initial Screen White Box before Continue button (shows Cancel when hovered) */
+        .btn-stealth-cancel {
+            background-color: #ffffff;
+            border: 1px solid #2563eb;
+            color: transparent;
+            font-weight: 500;
+            border-radius: 4px;
+            padding: 8px 18px;
+            min-width: 84px;
+            min-height: 40px;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .btn-stealth-cancel:hover, .btn-stealth-cancel:focus {
+            color: #333333;
+            background-color: #f8fafc;
+            border-color: #94a3b8;
+        }
+
+        /* Case Study Callout Box (Matching Image 2) */
+        .case-study-box {
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            padding: 14px 16px;
+            margin: 14px auto;
+            max-width: 680px;
+            box-sizing: border-box;
+            line-height: 1.55;
+            font-size: 13.5px;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(1px);
+        }
+
+        /* Radio Option Label */
+        .option-label {
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 6px;
+            background-color: transparent;
+            transition: background 0.15s ease;
+            touch-action: manipulation;
+        }
+        .option-label:hover {
+            background-color: #f8fafc;
+        }
+
+        .custom-radio {
+            accent-color: #0070f3;
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen text-gray-800 antialiased relative pb-16">
+
+    <!-- LMS Breadcrumb Navigation Header -->
+    <header class="border-b border-gray-200 bg-white px-3 py-2.5 sm:px-6">
+        <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm text-gray-600">
+            <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-blue-700 hover:underline cursor-pointer"><i class="fa-solid fa-house mr-1"></i> Portfolio</span>
+                <span>&gt;</span>
+                <span class="text-blue-700 hover:underline cursor-pointer truncate max-w-[160px] sm:max-w-none">Certificate in Business Management Skills</span>
+                <span>&gt;</span>
+                <span class="font-semibold text-gray-800 truncate max-w-[200px] sm:max-w-none">Stage 1 - Progress Exam - Module 1 to 4</span>
+            </div>
+            <div class="text-[11px] bg-gray-100 text-gray-600 px-2.5 py-1 rounded border border-gray-200 font-medium">
+                <i class="fa-solid fa-lock text-gray-500 mr-1"></i> PRACTICE EXAM - OBISL CAMPUS
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-4xl mx-auto px-3 sm:px-6 py-5 sm:py-6">
+
+        <!-- VIEW 1: INITIAL ATTEMPT CONFIRMATION (IMAGE 1) -->
+        <section id="view-step-1" class="space-y-4 sm:space-y-6">
+            <h1 class="text-lg sm:text-2xl font-bold text-slate-800">
+                Stage 1-Progress Exam-Module 1 to 4-Click Here
+            </h1>
+
+            <!-- Orange Attempt Warning Bar matching Image 1 -->
+            <div class="w-full bg-[#ea6c00] text-white px-4 py-3.5 rounded-md shadow-xs flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+                <div class="text-xs sm:text-[15px] font-medium leading-relaxed">
+                    Beware! Only one attempt remaining. By clicking the "Continue" button, a new attempt is recorded.
+                </div>
+                <div class="flex items-center gap-2.5 shrink-0">
+                    <!-- White box before Continue button that shows Cancel when hovered -->
+                    <button type="button" onclick="resetToInitial()" class="btn-stealth-cancel text-xs sm:text-sm" title="Cancel">
+                        Cancel
+                    </button>
+                    <button type="button" onclick="startExamDirectly()" class="btn-lms-green text-xs sm:text-sm px-5">
+                        Continue
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 2: LIVE EXAM INTERFACE WITH DESCRIPTION + QUESTION (IMAGE 2) -->
+        <section id="view-step-2" class="hidden space-y-4">
+            
+            <!-- Top Orange Dismissible Warning Banner -->
+            <div id="top-sequential-banner" class="w-full bg-[#ea6c00] text-white px-4 py-2.5 rounded-md shadow-xs flex items-center justify-between gap-3 text-xs sm:text-sm">
+                <div class="flex items-center gap-2.5 font-medium">
+                    <i class="fa-solid fa-triangle-exclamation text-slate-900"></i>
+                    <span>Warning: Each question appears in a separate page with no possibility of going back to past questions.</span>
+                </div>
+                <button type="button" onclick="document.getElementById('top-sequential-banner').classList.add('hidden')" class="text-slate-900 hover:text-white transition px-1" aria-label="Dismiss warning">
+                    <i class="fa-solid fa-xmark text-base"></i>
+                </button>
+            </div>
+
+            <!-- Second Orange Remaining Time Banner -->
+            <div class="w-full bg-[#ea6c00] text-white px-4 py-2.5 rounded-md shadow-xs flex items-center justify-between gap-3 text-xs sm:text-sm">
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-triangle-exclamation text-slate-900"></i>
+                    <span><strong>Remaining time:</strong> <span id="timer-display" class="font-mono font-semibold">15:00</span></span>
+                </div>
+            </div>
+
+            <!-- Description Card (Exact user HTML snippet inside LMS card) -->
+            <div class="bg-white border border-gray-200 rounded-md p-4 sm:p-6 shadow-2xs">
+                <h2 class="text-base sm:text-lg font-bold text-slate-800 mb-3">Description</h2>
+                
+                <div class="exam-guidelines-container" style="max-width: 600px; width: 100%; margin: 0 auto; font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #222222; line-height: 1.35; padding: 8px; font-size: 13px;">
+                    <div style="background-color: #e6f0fa; border-left: 3px solid #0056b3; padding: 6px 10px; margin-bottom: 10px; color: #004085;"><strong>Note:</strong> Read these rules before starting the exam.</div>
+                    <div style="border-bottom: 1px solid #0056b3; padding-bottom: 8px; margin-bottom: 10px;">
+                        <div style="font-size: 16px; color: #0056b3; font-weight: bold;">Online Exam <span style="font-size: 12px; font-weight: normal;">(Open-Book Mini Case Studies)</span></div>
+                        <div style="font-size: 11px; color: #555555; font-weight: 600; text-transform: uppercase; margin-top: 2px;">Certificate Level • 20% Weight</div>
+                    </div>
+                    <div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 6px 10px; margin-bottom: 10px; font-size: 12.5px;">
+                        <div><strong>Duration:</strong> 15 minutes (~3 min per case)</div>
+                        <div style="margin-top: 3px;"><strong>Format:</strong> 5 Case Study MCQs (1 Correct Answer)</div>
+                        <div style="margin-top: 3px;"><strong>Scoring:</strong> 4 marks each (20 total) • Pass mark: 10 (50%)</div>
+                    </div>
+                    <ul style="padding-left: 16px; margin: 0 0 10px 0; color: #333333; list-style-type: disc;">
+                        <li style="margin-bottom: 4px;"><strong>Open Book Exam:</strong> Module notes &amp; a calculator are allowed.</li>
+                        <li style="margin-bottom: 4px;"><strong>Exam Integrity:</strong> Keep your front-facing webcam uncovered for monitoring. Screen switching or suspicious activity will cancel the exam.</li>
+                        <li style="margin-bottom: 0;"><strong>Results:</strong> Shown immediately on-screen upon submission.</li>
+                    </ul>
+                    <div style="background-color: #fff8e6; border-left: 3px solid #ffc107; padding: 6px 10px; font-size: 12.5px; color: #856404;">Timer starts immediately on launch &amp; cannot be paused or reset. Only <strong>1 attempt</strong> is permitted.</div>
+                </div>
+            </div>
+
+            <!-- Question Card (Single Question Per Page) -->
+            <form id="exam-form" onsubmit="event.preventDefault();" class="space-y-4">
+                <div id="questions-container"></div>
+
+                <!-- Wide Next > Button (Questions 1–4) -->
+                <div id="next-button-wrapper" class="flex justify-center pt-1">
+                    <button type="button" onclick="handleNextClick()" class="btn-lms-blue-outline w-full max-w-md py-2.5 text-sm font-semibold shadow-2xs">
+                        Next &gt;
+                    </button>
+                </div>
+
+                <!-- Bottom Right Cancel & Final Submission Buttons -->
+                <div class="flex items-center justify-end gap-2.5 pt-3 border-t border-gray-200">
+                    <button type="button" onclick="triggerCancelAttemptModal()" class="btn-lms-blue-outline text-xs sm:text-sm px-4">
+                        Cancel
+                    </button>
+                    <button type="button" onclick="handleFinalSubmissionClick()" class="btn-lms-green text-xs sm:text-sm px-5">
+                        Final Submission
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- VIEW 3: EXERCISE RESULTS SCREEN (IMAGE 5 + DOWNLOAD REVIEW BUTTON) -->
+        <section id="view-step-3" class="hidden space-y-5">
+            <!-- Top Exercise Results Header Bar -->
+            <div class="flex flex-wrap items-center justify-between gap-3">
+                <h1 class="text-xl sm:text-2xl font-bold text-slate-800">Exercise Results</h1>
+                <div class="flex items-center gap-2">
+                    <!-- Re-attempt / Back Button -->
+                    <button type="button" onclick="resetToInitial()" class="btn-lms-blue-outline text-xs sm:text-sm px-3" title="Re-attempt Practice Simulation">
+                        <i class="fa-solid fa-reply"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 1: Exam Title & Rules Description -->
+            <div class="bg-white border border-gray-200 rounded-md p-5 sm:p-6 shadow-2xs">
+                <h2 class="text-base sm:text-lg font-bold text-slate-800 mb-4">
+                    Stage 1-Progress Exam-Module 1 to 4-Click Here
+                </h2>
+                <div class="exam-guidelines-container" style="max-width: 600px; width: 100%; margin: 0 auto; font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #222222; line-height: 1.35; padding: 8px; font-size: 13px;">
+                    <div style="background-color: #e6f0fa; border-left: 3px solid #0056b3; padding: 6px 10px; margin-bottom: 10px; color: #004085;"><strong>Note:</strong> Read these rules before starting the exam.</div>
+                    <div style="border-bottom: 1px solid #0056b3; padding-bottom: 8px; margin-bottom: 10px;">
+                        <div style="font-size: 16px; color: #0056b3; font-weight: bold;">Online Exam <span style="font-size: 12px; font-weight: normal;">(Open-Book Mini Case Studies)</span></div>
+                        <div style="font-size: 11px; color: #555555; font-weight: 600; text-transform: uppercase; margin-top: 2px;">Certificate Level • 20% Weight</div>
+                    </div>
+                    <div style="background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 6px 10px; margin-bottom: 10px; font-size: 12.5px;">
+                        <div><strong>Duration:</strong> 15 minutes (~3 min per case)</div>
+                        <div style="margin-top: 3px;"><strong>Format:</strong> 5 Case Study MCQs (1 Correct Answer)</div>
+                        <div style="margin-top: 3px;"><strong>Scoring:</strong> 4 marks each (20 total) • Pass mark: 10 (50%)</div>
+                    </div>
+                    <ul style="padding-left: 16px; margin: 0 0 10px 0; color: #333333; list-style-type: disc;">
+                        <li style="margin-bottom: 4px;"><strong>Open Book Exam:</strong> Module notes &amp; a calculator are allowed.</li>
+                        <li style="margin-bottom: 4px;"><strong>Exam Integrity:</strong> Keep your front-facing webcam uncovered for monitoring. Screen switching or suspicious activity will cancel the exam.</li>
+                        <li style="margin-bottom: 0;"><strong>Results:</strong> Shown immediately on-screen upon submission.</li>
+                    </ul>
+                    <div style="background-color: #fff8e6; border-left: 3px solid #ffc107; padding: 6px 10px; font-size: 12.5px; color: #856404;">Timer starts immediately on launch &amp; cannot be paused or reset. Only <strong>1 attempt</strong> is permitted.</div>
+                </div>
+            </div>
+
+            <!-- Card 2: ADMIN - OBISL CAMPUS Gauge & Attempt Metadata (Matching Image 5) -->
+            <div class="bg-white border border-gray-200 rounded-md p-5 sm:p-6 shadow-2xs">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+                    <h3 class="text-base sm:text-lg font-bold text-slate-800 uppercase tracking-tight">
+                        ADMIN - OBISL CAMPUS
+                    </h3>
+                    <span id="result-pass-badge" class="px-3 py-1 rounded-full text-xs font-bold uppercase bg-emerald-100 text-emerald-800 border border-emerald-300">
+                        PASSED (50%+ Threshold)
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <!-- Left: Semi-Circular Score Gauge -->
+                    <div>
+                        <div class="text-sm font-bold text-slate-700 mb-2">Total score</div>
+                        <div class="flex flex-col items-center sm:items-start">
+                            <svg id="score-gauge-svg" viewBox="0 0 260 155" class="w-64 h-40 overflow-visible">
+                                <!-- 4 Segmented Arcs: Red, Orange, Yellow, Green -->
+                                <path d="M 35 120 A 95 95 0 0 1 62.8 52.8" fill="none" stroke="#ef4444" stroke-width="11" stroke-linecap="butt" />
+                                <path d="M 66.5 49.3 A 95 95 0 0 1 127 25.1" fill="none" stroke="#f59e0b" stroke-width="11" stroke-linecap="butt" />
+                                <path d="M 133 25.1 A 95 95 0 0 1 193.5 49.3" fill="none" stroke="#eab308" stroke-width="11" stroke-linecap="butt" />
+                                <path d="M 197.2 52.8 A 95 95 0 0 1 225 120" fill="none" stroke="#16a34a" stroke-width="11" stroke-linecap="butt" />
+
+                                <!-- Min (0.00) and Max (20.00) Labels -->
+                                <g transform="translate(35, 134)">
+                                    <rect x="-24" y="-11" width="48" height="22" rx="11" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+                                    <text x="0" y="4" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">0.00</text>
+                                </g>
+                                <g transform="translate(225, 134)">
+                                    <rect x="-26" y="-11" width="52" height="22" rx="11" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+                                    <text x="0" y="4" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">20.00</text>
+                                </g>
+
+                                <!-- Rotating Needle Group -->
+                                <g id="gauge-needle-group" transform="translate(130, 120) rotate(0)">
+                                    <line x1="0" y1="0" x2="-78" y2="0" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+                                    <circle cx="0" cy="0" r="7" fill="#0f172a" />
+                                </g>
+
+                                <!-- Earned Score Pill -->
+                                <g transform="translate(130, 146)">
+                                    <rect x="-46" y="-12" width="92" height="24" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+                                    <text id="gauge-score-text" x="0" y="4" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">0.00 / 20.00</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Right: Start Timestamp, Duration, Attempt -->
+                    <div class="space-y-4 text-sm">
+                        <div>
+                            <div class="font-bold text-slate-800">Start</div>
+                            <div id="result-start-time" class="italic text-slate-600 mt-0.5">--/--/--, --:--</div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-800">Duration</div>
+                            <div id="result-duration-text" class="italic text-slate-600 mt-0.5">1 minute</div>
+                            <div class="text-slate-700 mt-0.5">Attempt: <span class="italic">1</span></div>
+                        </div>
+                        <div class="pt-1">
+                            <button type="button" onclick="downloadExamReview()" class="btn-lms-blue-outline text-xs sm:text-sm gap-2">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                <span>Download Faced Questions &amp; Answers (PDF)</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- MODAL 1: UNANSWERED QUESTIONS POPUP (IMAGE 3) -->
+    <div id="unanswered-modal" class="hidden fixed inset-0 z-50 modal-overlay flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-2xl max-w-md w-full p-6 border border-gray-200 relative">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-bold text-slate-800">Unanswered Questions</h3>
+                <button type="button" onclick="closeModal('unanswered-modal')" class="text-[#ea6c00] hover:text-orange-700 transition p-1" aria-label="Close popup">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                You haven’t answered this question. Are you sure you want to continue? You won’t be able to return.
+            </p>
+            <div class="flex items-center justify-end gap-2.5">
+                <button type="button" onclick="closeModal('unanswered-modal')" class="btn-lms-blue-outline text-sm">
+                    Back to exercise
+                </button>
+                <button type="button" onclick="confirmSkipAndProceed()" class="btn-lms-blue-solid text-sm">
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: FINAL SUBMISSION CONFIRMATION POPUP (IMAGE 4) -->
+    <div id="final-submission-modal" class="hidden fixed inset-0 z-50 modal-overlay flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-2xl max-w-md w-full p-6 border border-gray-200 relative">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-lg font-bold text-slate-800">Final Submission</h3>
+                <button type="button" onclick="closeModal('final-submission-modal')" class="text-[#ea6c00] hover:text-orange-700 transition p-1" aria-label="Close popup">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                Warning! After submitting the exercise, your answers will be recorded as final. Proceed?
+            </p>
+            <div class="flex items-center justify-end gap-2.5">
+                <button type="button" onclick="closeModal('final-submission-modal')" class="btn-lms-blue-outline text-sm">
+                    Back to exercise
+                </button>
+                <button type="button" onclick="confirmFinalSubmission()" class="btn-lms-green text-sm px-5">
+                    Final Submission
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: EXAM INTEGRITY / CANCEL ATTEMPT POPUP -->
+    <div id="cancellation-modal" class="hidden fixed inset-0 z-50 modal-overlay flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-2xl max-w-sm w-full p-6 text-center border border-gray-200">
+            <div class="mx-auto w-12 h-12 flex items-center justify-center rounded-full bg-orange-100 text-orange-500 text-2xl mb-3">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 class="text-base font-bold text-slate-800 mb-1.5">Warning!</h3>
+            <p id="cancellation-modal-text" class="text-gray-600 text-sm mb-5">
+                Your attempt will be canceled.
+            </p>
+            <div class="flex items-center justify-center gap-2.5">
+                <button type="button" id="btn-cancel-abort" onclick="closeModal('cancellation-modal')" class="btn-lms-blue-outline text-sm hidden">
+                    Back to exercise
+                </button>
+                <button type="button" onclick="confirmCancellation()" class="btn-lms-blue-solid text-sm w-full">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * UPGRADED CASE STUDY SCENARIO POOLS WITH FULL RATIONALES
+         * Pool 1: Module 1 (Business & Management Principles)
+         * Pool 2: Module 2 (Financial Literacy for Managers)
+         * Pool 3: Module 3 (Business Ethics & Professionalism)
+         * Pool 4: Module 4 (Strategic Management & Planning)
+         * Pool 5 (Wild Card): Cross-Module Applied Scenarios
+         */
+        const questionPools = {
+            module1: [
+                {
+                    poolId: "M1-S1",
+                    moduleTag: "Module 1: Business & Management Principles",
+                    questionText: "Which combined operational adjustment directly addresses both execution failures identified by the COO?",
+                    scenario: "A B2B logistics software firm in Rajagiriya set an annual board mandate to grow recurring revenue by 25%. Management invested heavily in cloud server upgrades and hired six senior software architects. However, at the mid-year review, revenue growth stood at just 6%. Investigating the shortfall, the Chief Operating Officer found that the corporate target was never translated into specific client-acquisition quotas for regional sales managers or daily outreach targets for account executives. Furthermore, the engineering team followed a rigid, sequential 10-month release schedule, refusing to adjust product features despite early client feedback showing shifting demand toward mobile fleet tracking. The COO must realign execution for the second half of the year.",
+                    options: [
+                        "Break the overarching revenue goal into measurable departmental and individual daily activity metrics while shifting product delivery to short, iterative feedback cycles.",
+                        "Require all account executives to report directly to the Chief Executive Officer weekly while maintaining the sequential software engineering workflow.",
+                        "Extend the current software development timeline by four months to perfect technical specifications before initiating any outbound sales outreach to prospective clients.",
+                        "Reallocate the sales team's travel budget toward upgrading office workstations and enforcing strict adherence to the original 10-month project blueprint."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Effective goal cascading (Management by Objectives) translates broad corporate targets into concrete departmental and individual KPIs, while iterative agile sprints allow engineering to adapt rapidly to evolving customer feedback rather than remaining locked into a rigid 10-month waterfall cycle."
+                },
+                {
+                    poolId: "M1-S2",
+                    moduleTag: "Module 1: Business & Management Principles",
+                    questionText: "Which management intervention best resolves the supervisory bottleneck without slowing down floor decisions?",
+                    scenario: "An apparel accessories plant in Biyagama employs 210 machine operators supervised by 10 line leaders reporting directly to the Operations Manager. After introducing real-time digital defect tracking, rework dropped by 18% because operators flagged stitching errors immediately. However, two newly promoted line leaders are overwhelmed: they spend half their shift escalating minor thread-tension adjustments and shift-swap requests to the Operations Manager, causing 45-minute idle delays on their lines.",
+                    options: [
+                        "Define clear decision-authority thresholds for routine floor adjustments and provide structured peer coaching to the new line leaders.",
+                        "Insert two additional layers of assistant factory managers so every thread-tension adjustment receives three signatures.",
+                        "Disable the real-time defect tracking system so operators only report stitching defects at the end of each week.",
+                        "Transfer all shift scheduling and minor machine troubleshooting directly to the Operations Manager."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Empowering frontline supervisors with clear decision-making boundaries and targeted coaching preserves organizational agility and flat communication while eliminating upward delegation bottlenecks."
+                },
+                {
+                    poolId: "M1-S3",
+                    moduleTag: "Module 1: Business & Management Principles",
+                    questionText: "Which managerial principle best explains why Branch West outperformed Branch East despite identical staffing and technology?",
+                    scenario: "A commercial courier company operates two sorting hubs of identical size in Kandy (Branch West) and Matara (Branch East). Both hubs handle 4,500 parcels nightly using identical barcode scanners. Branch West consistently dispatches trucks 35 minutes ahead of schedule with 99.4% routing accuracy, whereas Branch East suffers frequent late dispatches. Observation shows Branch West's supervisor conducts 10-minute pre-shift huddles to clarify priority routes, rotates staff across bottleneck stations, and invites sorter suggestions, while Branch East's supervisor remains in the office issuing written reprimands only after delays occur.",
+                    options: [
+                        "Proactive communication, clear role alignment, and participative problem-solving drive higher operational efficiency than reactive, punitive supervision.",
+                        "Barcode scanning hardware deteriorates faster in coastal climates than in central hill-country facilities.",
+                        "Eliminating pre-shift briefings allows sorters more uninterrupted time to guess priority dispatch routes.",
+                        "Centralized office-only supervision prevents supervisors from interfering with sorting workflows."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Active leadership combining clear goal communication, cross-training, and employee participation prevents bottlenecks before they occur, whereas purely reactive control only penalizes failures after the fact."
+                },
+                {
+                    poolId: "M1-S4",
+                    moduleTag: "Module 1: Business & Management Principles",
+                    questionText: "How does transitioning to rolling bi-weekly reviews strengthen the hospital's operational control?",
+                    scenario: "A private multi-specialty hospital in Negombo faces unpredictable surges in outpatient lab tests and pharmacy prescriptions every monsoon season. Previously, department heads set staffing rosters once every six months and reviewed overtime budgets only at quarterly board meetings. Management has now instituted bi-weekly operational reviews linking pharmacy stock, lab turnaround times, and cross-departmental nurse float pools.",
+                    options: [
+                        "It shortens the feedback loop, enabling timely resource reallocation before service backlogs and overtime costs escalate.",
+                        "It eliminates the need to track overtime budgets or lab turnaround metrics throughout the monsoon season.",
+                        "It locks staffing rosters permanently for twelve months so department heads cannot adjust shifts.",
+                        "It isolates pharmacy inventory decisions from outpatient clinic demand."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Effective operational control relies on timely feedback loops; shortening review intervals from quarterly/semi-annual to bi-weekly enables proactive corrective adjustments in volatile demand environments."
+                }
+            ],
+            module2: [
+                {
+                    poolId: "M2-S1",
+                    moduleTag: "Module 2: Financial Literacy for Managers",
+                    questionText: "How many meal boxes must the catering kitchen sell per month to break even?",
+                    scenario: "A corporate meal-subscription kitchen in Colombo 03 sells healthy lunch boxes at LKR 1,250 per box. Ingredients, eco-packaging, and direct delivery fuel cost LKR 750 per box. Monthly fixed expenses—including commercial kitchen rent, cold-storage electricity, and salaried chefs—total LKR 650,000.",
+                    options: [
+                        "1,300 meal boxes",
+                        "520 meal boxes",
+                        "867 meal boxes",
+                        "1,625 meal boxes"
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Contribution margin per box = Selling Price (LKR 1,250) − Variable Cost (LKR 750) = LKR 500. Break-even volume = Fixed Costs (LKR 650,000) ÷ Contribution Margin (LKR 500) = 1,300 meal boxes."
+                },
+                {
+                    poolId: "M2-S2",
+                    moduleTag: "Module 2: Financial Literacy for Managers",
+                    questionText: "Why does the distributorship face a liquidity crunch despite reporting strong monthly net profit?",
+                    scenario: "An electrical hardware distributor in Kurunegala delivered LKR 8,500,000 worth of industrial cabling to construction contractors on 90-day credit terms during October. Under accrual accounting, the firm recorded LKR 8,500,000 in revenue and LKR 1,900,000 in net profit for October. However, by mid-November, the firm struggled to pay its LKR 3,200,000 import supplier bill and staff salaries.",
+                    options: [
+                        "Accrual profit recognizes revenue when earned rather than when cash is collected, creating a working-capital timing gap when receivables are tied up for 90 days.",
+                        "Recording credit sales automatically deducts cash from the company's current bank balance.",
+                        "Import suppliers are legally required to wait 90 days until contractors settle their invoices.",
+                        "Net profit on the income statement always equals actual cash on hand at month-end."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Profitability and cash flow are distinct: accrual accounting records revenue upon delivery, whereas cash inflows occur only when accounts receivable are collected. Long credit terms (90 days) strain short-term liquidity."
+                },
+                {
+                    poolId: "M2-S3",
+                    moduleTag: "Module 2: Financial Literacy for Managers",
+                    questionText: "What are the company's Total Assets, Total Liabilities, and Owners' Equity immediately after this transaction?",
+                    scenario: "A solar-installation firm begins the quarter with Total Assets of LKR 45,000,000, Total Liabilities of LKR 27,000,000, and Owners' Equity of LKR 18,000,000. In week one, the firm uses LKR 4,500,000 from its cash reserves to settle an overdue equipment supplier payable.",
+                    options: [
+                        "Assets: LKR 40,500,000 | Liabilities: LKR 22,500,000 | Equity: LKR 18,000,000",
+                        "Assets: LKR 45,000,000 | Liabilities: LKR 22,500,000 | Equity: LKR 22,500,000",
+                        "Assets: LKR 40,500,000 | Liabilities: LKR 27,000,000 | Equity: LKR 13,500,000",
+                        "Assets: LKR 36,000,000 | Liabilities: LKR 27,000,000 | Equity: LKR 9,000,000"
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Paying off a liability with cash reduces an asset (Cash −LKR 4.5M → Assets = LKR 40.5M) and reduces a liability by the exact same amount (Accounts Payable −LKR 4.5M → Liabilities = LKR 22.5M), leaving Equity unchanged at LKR 18.0M."
+                },
+                {
+                    poolId: "M2-S4",
+                    moduleTag: "Module 2: Financial Literacy for Managers",
+                    questionText: "How should the Finance Manager evaluate the LKR 420,000 unfavorable raw-material variance?",
+                    scenario: "A spice-export processor budgeted LKR 2,400,000 for raw cinnamon procurement in Q2 based on projected export orders of 10,000 kg. Actual raw material spend reached LKR 2,820,000 because an unexpected European buyer placed a rush order for an additional 2,500 kg at a 32% gross margin, while per-kilogram procurement cost actually dropped by 2%.",
+                    options: [
+                        "Assess the variance using a flexible budget adjusted for actual output volume, recognizing that the higher spend supported profitable volume growth.",
+                        "Penalize the procurement team automatically for exceeding the static LKR 2,400,000 budget ceiling.",
+                        "Cancel future rush export orders so raw material expenditure never exceeds the initial static estimate.",
+                        "Disregard unit material costs completely since total revenue increased."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Comparing actual costs against a static budget ignores volume changes. Flexing the budget to 12,500 kg shows per-unit efficiency actually improved, and the total spend increase was driven by profitable incremental demand."
+                }
+            ],
+            module3: [
+                {
+                    poolId: "M3-S1",
+                    moduleTag: "Module 3: Business Ethics & Professionalism",
+                    questionText: "Which action upholds professional integrity and procurement fairness in this situation?",
+                    scenario: "A hospital procurement lead is finalizing vendor evaluations for a LKR 35,000,000 medical imaging contract. Two days before bids are scored, a competing supplier's sales director offers the procurement lead complimentary VIP hospitality passes and hotel accommodation for an international sports tournament, stating it is 'merely a gesture of appreciation for your hard work this year.'",
+                    options: [
+                        "Politely decline the hospitality package and formally log the offer with the compliance/ethics committee to prevent any actual or perceived conflict of interest.",
+                        "Accept the VIP passes privately while assuring colleagues that scoring rubrics will remain strictly objective.",
+                        "Accept the hospitality package and share competitor pricing ranges with the supplier as a courtesy.",
+                        "Transfer the passes to a family member so the procurement lead's own name does not appear on the guest list."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Accepting high-value gifts or hospitality during an active tender compromises both actual impartiality and the appearance of fairness. Declining and disclosing the offer protects institutional integrity."
+                },
+                {
+                    poolId: "M3-S2",
+                    moduleTag: "Module 3: Business Ethics & Professionalism",
+                    questionText: "What fundamental ethical failure is demonstrated by the company's leadership?",
+                    scenario: "A fast-fashion garment exporter launches a high-profile media campaign celebrating International Women's Day and donating LKR 500,000 to local charities. Internally, however, management locks emergency exit doors during night shifts to prevent fabric pilferage and falsifies punch-card logs to avoid paying statutory overtime.",
+                    options: [
+                        "Engaging in superficial corporate philanthropy ('ethics washing') while violating fundamental duties of worker safety, legal compliance, and fair compensation.",
+                        "Donating funds to community charities instead of distributing 100% of profits to external shareholders.",
+                        "Publicizing International Women's Day initiatives without conducting a customer satisfaction survey.",
+                        "Using electronic punch-card systems to track factory attendance."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Genuine business ethics begins with core duties to internal stakeholders—safe working conditions, legal compliance, and fair pay. External charity campaigns cannot excuse hazardous and unlawful labor practices."
+                },
+                {
+                    poolId: "M3-S3",
+                    moduleTag: "Module 3: Business Ethics & Professionalism",
+                    questionText: "What is the most ethical and professionally responsible course of action for the assistant accountant?",
+                    scenario: "While preparing year-end financial schedules, an assistant accountant discovers that LKR 6,400,000 in customer deposits for next year's software maintenance contracts have been booked as current-year earned revenue to trigger executive performance bonuses. When asked informally, the Finance Controller says, 'Leave it alone; we'll deliver the service next year anyway.'",
+                    options: [
+                        "Document the accounting discrepancy objectively and escalate it through the organization's internal audit or whistleblower governance channel.",
+                        "Adjust the supporting ledger descriptions so external auditors do not notice the premature revenue recognition.",
+                        "Leak internal financial spreadsheets to a public forum before utilizing internal governance mechanisms.",
+                        "Follow the Finance Controller's verbal instruction without question since junior staff bear no ethical accountability."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Misrepresenting unearned deposits as current revenue distorts financial statements. Professional integrity requires documenting factual evidence and escalating through established internal audit/compliance channels."
+                },
+                {
+                    poolId: "M3-S4",
+                    moduleTag: "Module 3: Business Ethics & Professionalism",
+                    questionText: "Which response best demonstrates stakeholder accountability and ethical product governance?",
+                    scenario: "Quality engineers at a domestic appliance distributor discover that a batch of 1,800 electric kettles has a faulty thermal cut-off switch that could overheat if boiled dry. No customer injuries have been reported yet, and a voluntary recall will cost LKR 4,200,000—wiping out the division's quarterly bonus.",
+                    options: [
+                        "Halt sales immediately, notify regulatory authorities, and initiate a transparent recall and replacement program for all affected units.",
+                        "Continue selling the remaining stock quietly while instructing customer service to replace units only if a customer complains.",
+                        "Include a tiny disclaimer sticker on the outer box warning buyers never to leave the kettle unattended.",
+                        "Delay any announcement until the next quarter so divisional managers still receive their current bonus payout."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Consumer safety overrides short-term financial incentives. Proactive recall and transparent communication prevent physical harm, uphold stakeholder trust, and mitigate severe legal/reputational liability."
+                }
+            ],
+            module4: [
+                {
+                    poolId: "M4-S1",
+                    moduleTag: "Module 4: Strategic Management & Planning",
+                    questionText: "According to the Ansoff Matrix, how are Strategic Option X and Strategic Option Y classified respectively?",
+                    scenario: "A Sri Lankan specialty tea producer currently sells packaged orthodox black tea exclusively through local supermarket chains. To drive growth over the next three years, the board evaluates two initiatives: Option X focuses on introducing loyalty promotions and larger family packs to boost repeat purchases among existing domestic supermarket shoppers; Option Y focuses on launching a brand-new line of bottled ready-to-drink herbal sparkling beverages for boutique cafes.",
+                    options: [
+                        "Option X is Market Penetration, and Option Y is Product Development.",
+                        "Option X is Market Development, and Option Y is Diversification.",
+                        "Option X is Product Development, and Option Y is Market Penetration.",
+                        "Option X is Conglomerate Diversification, and Option Y is Cost Leadership."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Selling more of an existing product (black tea) in an existing market (local supermarkets) is Market Penetration (Option X), whereas creating a new product (bottled herbal sparkling drinks) for existing/adjacent customer channels is Product Development (Option Y)."
+                },
+                {
+                    poolId: "M4-S2",
+                    moduleTag: "Module 4: Strategic Management & Planning",
+                    questionText: "Which strategic framework is specifically designed to systematically evaluate these external macro-environmental forces?",
+                    scenario: "Before committing capital to build a new renewable-energy assembly plant, a conglomerate's strategy team analyzes changes in import tariff exemptions, central bank lending rates, shifting industrial carbon-neutrality standards, emerging solar-cell automation technologies, and revised environmental licensing laws.",
+                    options: [
+                        "PESTLE Analysis (Political, Economic, Social, Technological, Legal, and Environmental factors).",
+                        "The Ansoff Product-Market Growth Matrix.",
+                        "Break-Even Contribution Margin Analysis.",
+                        "Internal Trial Balance Reconciliation."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "PESTLE systematically evaluates macro-level external forces—Political (tariffs), Economic (interest rates), Social/Environmental (carbon standards), Technological (automation), and Legal (licensing laws)."
+                },
+                {
+                    poolId: "M4-S3",
+                    moduleTag: "Module 4: Strategic Management & Planning",
+                    questionText: "Which of Porter's Generic Strategies best characterizes this hotel group's competitive positioning?",
+                    scenario: "An eco-luxury boutique villa chain in Ella and Sigiriya designs private architectural treehouses using reclaimed timber, offers personalized Ayurvedic wellness programs and organic farm-to-table dining, and commands room rates three times higher than standard regional hotels with high repeat occupancy.",
+                    options: [
+                        "Differentiation (or Focused Differentiation), creating unique perceived value that justifies a sustainable price premium.",
+                        "Overall Cost Leadership achieved through standardized budget rooms and minimal guest services.",
+                        "Stuck-in-the-middle pricing that imitates economy guesthouses.",
+                        "Unrelated diversification into heavy civil construction."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Delivering distinctive architectural design, tailored wellness, and bespoke service to earn a price premium exemplifies Porter's Differentiation (or Focused Differentiation) strategy."
+                },
+                {
+                    poolId: "M4-S4",
+                    moduleTag: "Module 4: Strategic Management & Planning",
+                    questionText: "What is the Customer Lifetime Value to Customer Acquisition Cost (CLV:CAC) ratio, and what strategic conclusion follows?",
+                    scenario: "A cloud-based POS (Point-of-Sale) provider serving retail shops spends LKR 24,000 in digital ads and onboarding demos to acquire each new merchant. On average, each merchant generates LKR 96,000 in net gross profit over their subscription lifespan.",
+                    options: [
+                        "The CLV:CAC ratio is 4.0:1, demonstrating healthy unit economics where customer value substantially exceeds acquisition cost.",
+                        "The CLV:CAC ratio is 0.25:1, meaning acquisition spending is four times greater than customer value.",
+                        "The CLV:CAC ratio is 1.0:1, indicating the firm barely breaks even on marketing spend.",
+                        "The CLV:CAC ratio is 24.0:1, proving onboarding demos have zero cost."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "CLV ÷ CAC = LKR 96,000 ÷ LKR 24,000 = 4.0. A ratio above 3:1 generally signals strong, scalable unit economics for subscription businesses."
+                }
+            ],
+            wildcard: [
+                {
+                    poolId: "WC-S1",
+                    moduleTag: "Module 1: Cross-Functional Alignment",
+                    questionText: "Which cross-functional practice would have prevented the post-launch service breakdown?",
+                    scenario: "A telecommunications provider launched a self-service mobile app allowing customers to upgrade fiber broadband packages. The digital product team designed the app without involving field installation technicians or call-center agents. Upon launch, thousands of users booked upgrades for neighborhoods lacking fiber port capacity, overwhelming the call center with angry cancellation calls.",
+                    options: [
+                        "Integrating frontline operations, field engineering, and customer support into cross-functional testing before full commercial rollout.",
+                        "Restricting all communication between field technicians and app developers until six months after launch.",
+                        "Adding four executive steering committees to approve app icon colors without checking network capacity.",
+                        "Measuring launch success exclusively by total app downloads rather than successful service fulfillment."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Cross-functional collaboration ensures customer-facing digital promises align with backend operational capacity before full-scale rollout."
+                },
+                {
+                    poolId: "WC-S2",
+                    moduleTag: "Module 2: Cost Structure & Risk",
+                    questionText: "Why does the variable-cost contract protect the exporter's profitability during volatile demand?",
+                    scenario: "A seasonal fruit-pulp exporter in Anuradhapura expects unpredictable harvest volumes over the next two quarters. Management compares renting an automated bottling line at a fixed LKR 950,000 monthly lease against using a third-party co-packer charging LKR 85 per bottle with zero fixed monthly commitment.",
+                    options: [
+                        "Variable costs move proportionally with production volume, preventing heavy fixed-cost losses if harvest yields fall sharply.",
+                        "Fixed lease payments automatically drop to zero whenever monthly output declines.",
+                        "High fixed overhead lowers the break-even sales threshold during low-harvest months.",
+                        "Total variable cost decreases as the number of bottles produced increases."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "In uncertain volume environments, a variable cost structure lowers operating leverage and protects against fixed-cost losses when output drops."
+                },
+                {
+                    poolId: "WC-S3",
+                    moduleTag: "Module 3: Confidentiality & Data Ethics",
+                    questionText: "What is the ethically and legally required response from the newly hired Product Manager?",
+                    scenario: "A Product Manager leaves a fintech startup to join a rival payment app. On day two, the new manager's supervisor asks for the former employer's proprietary merchant pricing algorithms and unreleased roadmap slides saved on a personal drive.",
+                    options: [
+                        "Refuse to disclose or use any confidential trade secrets or proprietary files belonging to the former employer.",
+                        "Upload the proprietary pricing files onto a shared team folder so the rival firm can undercut competitors immediately.",
+                        "Read the figures aloud during a meeting without emailing the physical files.",
+                        "Share the merchant list first and wait three months before sharing the pricing algorithms."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "Fiduciary and professional ethics require respecting post-employment confidentiality and intellectual property rights; using a former employer's trade secrets is unethical and unlawful."
+                },
+                {
+                    poolId: "WC-S4",
+                    moduleTag: "Module 4: SMART Strategic Objectives",
+                    questionText: "Why does this objective provide a strong foundation for strategic execution and accountability?",
+                    scenario: "A retail pharmacy chain establishes the following annual objective: 'Increase generic prescription fulfillment share from 38% to 52% across all 45 outlets by December 31 through pharmacist consultation training and automated inventory replenishment.'",
+                    options: [
+                        "It meets SMART criteria—specific, measurable, actionable, relevant, and time-bound—linking clear initiatives to a quantifiable target.",
+                        "It avoids concrete numbers so branch managers can define success subjectively at year-end.",
+                        "It omits any completion deadline so training can be postponed indefinitely.",
+                        "It substitutes a broad corporate vision slogan for operational accountability."
+                    ],
+                    correctAnswer: 0,
+                    rationale: "SMART objectives establish clear baselines (38%), targets (52%), scope (45 outlets), actionable levers (training & inventory automation), and deadlines (Dec 31) for unambiguous execution tracking."
+                }
+            ]
+        };
+
+        let activeQuestions = [];
+        let currentQuestionIndex = 0;
+        let currentStep = 1;
+        let timerSeconds = 15 * 60; // 15 minutes matching description rules
+        let timerInterval = null;
+        let selectedAnswers = {};
+        let examStartTime = null;
+
+        // Fisher-Yates shuffle utility
+        function shuffleArray(array) {
+            const arr = array.slice();
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // Draw 1 random question from a pool and randomize its 4 options
+        function drawRandomQuestion(pool, displayNumber) {
+            const randomIndex = Math.floor(Math.random() * pool.length);
+            const rawQuestion = pool[randomIndex];
+
+            const optionObjects = rawQuestion.options.map((text, idx) => ({
+                cleanText: text.replace(/^[A-D]\.\s*/, ''),
+                isCorrect: idx === rawQuestion.correctAnswer
+            }));
+
+            const shuffledOptions = shuffleArray(optionObjects);
+            const newCorrectIndex = shuffledOptions.findIndex(opt => opt.isCorrect);
+
+            return {
+                id: displayNumber,
+                poolId: rawQuestion.poolId,
+                moduleTag: rawQuestion.moduleTag,
+                questionText: rawQuestion.questionText,
+                scenario: rawQuestion.scenario,
+                options: shuffledOptions.map(opt => opt.cleanText),
+                correctAnswer: newCorrectIndex,
+                rationale: rawQuestion.rationale
+            };
+        }
+
+        // Assemble 5 randomized questions (1 per module + 1 from the 5th pool)
+        function generateExamQuestions() {
+            activeQuestions = [
+                drawRandomQuestion(questionPools.module1, 1),
+                drawRandomQuestion(questionPools.module2, 2),
+                drawRandomQuestion(questionPools.module3, 3),
+                drawRandomQuestion(questionPools.module4, 4),
+                drawRandomQuestion(questionPools.wildcard, 5)
+            ];
+            currentQuestionIndex = 0;
+        }
+
+        // Render Single Current Question into View 2 (Matching Image 2 layout)
+        function renderCurrentQuestion() {
+            const container = document.getElementById('questions-container');
+            const nextBtnWrapper = document.getElementById('next-button-wrapper');
+            const total = activeQuestions.length;
+            const q = activeQuestions[currentQuestionIndex];
+            if (!q) return;
+
+            let optionsHtml = '';
+            q.options.forEach((optText, optIndex) => {
+                const isChecked = selectedAnswers[q.id] === optIndex ? 'checked' : '';
+                optionsHtml += `
+                    <label class="option-label text-xs sm:text-sm text-gray-800">
+                        <input type="radio" name="question_${q.id}" value="${optIndex}" ${isChecked} onchange="selectOption(${q.id}, ${optIndex})" class="custom-radio">
+                        <span class="leading-relaxed">${optText}</span>
+                    </label>
+                `;
+            });
+
+            container.innerHTML = `
+                <div class="bg-white border border-gray-200 rounded-md p-4 sm:p-6 shadow-2xs space-y-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div class="text-sm sm:text-base font-bold text-slate-800">
+                            Question ${currentQuestionIndex + 1} / ${total} <span class="font-normal text-gray-600 text-xs sm:text-sm">(Multiple Choice (Single Answer)) — 4 grades</span>
+                        </div>
+                        <span class="text-[11px] font-semibold text-[#0056b3] bg-[#e6f0fa] px-2.5 py-0.5 rounded border border-[#b8daff]">
+                            ${q.moduleTag}
+                        </span>
+                    </div>
+                    
+                    <p class="text-xs sm:text-[14.5px] font-semibold text-slate-800 leading-relaxed">
+                        ${q.questionText}
+                    </p>
+
+                    <!-- Centered Case Study Callout Box (Image 2 style) -->
+                    <div class="case-study-box">
+                        <span class="block text-[10.5px] font-bold text-[#0056b3] uppercase tracking-wider mb-1.5">
+                            CASE STUDY SCENARIO
+                        </span>
+                        <p class="m-0 text-xs sm:text-[13.5px] text-slate-700 leading-relaxed">
+                            ${q.scenario}
+                        </p>
+                    </div>
+
+                    <!-- Options List -->
+                    <div class="space-y-1.5 pt-1">
+                        ${optionsHtml}
+                    </div>
+
+                    <!-- Clear Choice Button (Bottom Right inside card, Image 2 style) -->
+                    <div class="flex justify-end pt-2">
+                        <button type="button" onclick="clearChoice(${q.id})" class="btn-lms-blue-outline text-xs px-3 py-1.5 min-h-[34px]">
+                            ✕ Clear Choice
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Show Next > button on Questions 1–4; hide on Question 5 (Final Submission only)
+            if (currentQuestionIndex < total - 1) {
+                nextBtnWrapper.classList.remove('hidden');
+            } else {
+                nextBtnWrapper.classList.add('hidden');
+            }
+        }
+
+        // Next > button handler: shows Unanswered Questions modal if skipped, else advances
+        function handleNextClick() {
+            const currentQ = activeQuestions[currentQuestionIndex];
+            if (!currentQ) return;
+
+            if (selectedAnswers[currentQ.id] === undefined) {
+                openModal('unanswered-modal');
+            } else {
+                advanceToNextQuestion();
+            }
+        }
+
+        function confirmSkipAndProceed() {
+            closeModal('unanswered-modal');
+            advanceToNextQuestion();
+        }
+
+        function advanceToNextQuestion() {
+            if (currentQuestionIndex < activeQuestions.length - 1) {
+                currentQuestionIndex++;
+                renderCurrentQuestion();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Final Submission button handler: opens Final Submission modal (Image 4)
+        function handleFinalSubmissionClick() {
+            openModal('final-submission-modal');
+        }
+
+        function confirmFinalSubmission() {
+            closeModal('final-submission-modal');
+            submitExam();
+        }
+
+        function selectOption(questionId, optionIndex) {
+            selectedAnswers[questionId] = optionIndex;
+        }
+
+        function clearChoice(questionId) {
+            delete selectedAnswers[questionId];
+            renderCurrentQuestion();
+        }
+
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function showStep(stepNum) {
+            currentStep = stepNum;
+            document.getElementById('view-step-1').classList.add('hidden');
+            document.getElementById('view-step-2').classList.add('hidden');
+            document.getElementById('view-step-3').classList.add('hidden');
+
+            document.getElementById(`view-step-${stepNum}`).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Clicking Continue on Image 1 transitions directly to Image 2 (Exam Screen with Description + Question 1/5)
+        function startExamDirectly() {
+            examStartTime = new Date();
+            timerSeconds = 15 * 60;
+            selectedAnswers = {};
+            generateExamQuestions();
+            renderCurrentQuestion();
+            showStep(2);
+            startTimer();
+        }
+
+        function startTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                updateTimerDisplay();
+
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    submitExam();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timerSeconds / 60);
+            const seconds = timerSeconds % 60;
+            const formatted = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            document.getElementById('timer-display').textContent = formatted;
+        }
+
+        function triggerCancelAttemptModal() {
+            document.getElementById('cancellation-modal-text').textContent = "Are you sure you want to cancel your attempt? All progress will be lost.";
+            document.getElementById('btn-cancel-abort').classList.remove('hidden');
+            openModal('cancellation-modal');
+        }
+
+        function triggerViolationModal() {
+            document.getElementById('cancellation-modal-text').textContent = "Screen switching or suspicious activity detected. Your attempt will be canceled.";
+            document.getElementById('btn-cancel-abort').classList.add('hidden');
+            openModal('cancellation-modal');
+        }
+
+        function confirmCancellation() {
+            closeModal('cancellation-modal');
+            resetToInitial();
+        }
+
+        // Anti-cheat tab switch monitoring
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && currentStep === 2) {
+                triggerViolationModal();
+            }
+        });
+
+        function formatStartTimestamp(dateObj) {
+            if (!dateObj) return "11/24/26, 12:35PM";
+            const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+            const day = String(dateObj.getDate()).padStart(2, '0');
+            const year = String(dateObj.getFullYear()).slice(-2);
+            let hours = dateObj.getHours();
+            const minutes = String(dateObj.getMinutes()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;
+            return `${month}/${day}/${year}, ${hours}:${minutes}${ampm}`;
+        }
+
+        function submitExam() {
+            clearInterval(timerInterval);
+
+            let correctCount = 0;
+            activeQuestions.forEach(q => {
+                if (selectedAnswers[q.id] === q.correctAnswer) {
+                    correctCount++;
+                }
+            });
+
+            const marksPerQuestion = 4;
+            const totalMarks = activeQuestions.length * marksPerQuestion; // 20.00
+            const earnedMarks = correctCount * marksPerQuestion;
+            const passed = earnedMarks >= 10;
+
+            // Update Semi-Circular Gauge Needle (-180 deg at 0.00 to 0 deg at 20.00)
+            // Initial line points left (-78, 0) which is 0.00; rotating +180deg points right (+78, 0) which is 20.00
+            const ratio = Math.min(Math.max(earnedMarks / totalMarks, 0), 1);
+            const rotationDeg = Math.round(ratio * 180);
+            const needleGroup = document.getElementById('gauge-needle-group');
+            if (needleGroup) {
+                needleGroup.setAttribute('transform', `translate(130, 120) rotate(${rotationDeg})`);
+            }
+            document.getElementById('gauge-score-text').textContent = `${earnedMarks.toFixed(2)} / ${totalMarks.toFixed(2)}`;
+
+            // Update Start Time & Duration
+            document.getElementById('result-start-time').textContent = formatStartTimestamp(examStartTime);
+            const elapsedSeconds = Math.max(60, (15 * 60) - timerSeconds);
+            const elapsedMinutes = Math.max(1, Math.round(elapsedSeconds / 60));
+            document.getElementById('result-duration-text').textContent = `${elapsedMinutes} minute${elapsedMinutes > 1 ? 's' : ''}`;
+
+            // Update Pass/Fail Badge
+            const passBadge = document.getElementById('result-pass-badge');
+            if (passed) {
+                passBadge.textContent = `PASSED (${earnedMarks}/${totalMarks} Marks)`;
+                passBadge.className = "px-3 py-1 rounded-full text-xs font-bold uppercase bg-emerald-100 text-emerald-800 border border-emerald-300";
+            } else {
+                passBadge.textContent = `FAILED (${earnedMarks}/${totalMarks} Marks — Pass Mark: 10)`;
+                passBadge.className = "px-3 py-1 rounded-full text-xs font-bold uppercase bg-rose-100 text-rose-800 border border-rose-300";
+            }
+
+            showStep(3);
+        }
+
+        // Generate and Download Clean Formatted PDF Review Sheet with Questions, Options, Student Selection & Rationale
+        function downloadExamReview() {
+            if (!activeQuestions || activeQuestions.length === 0) return;
+
+            if (!window.jspdf || !window.jspdf.jsPDF) {
+                window.print();
+                return;
+            }
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const pageHeight = doc.internal.pageSize.getHeight();
+            const margin = 15;
+            const contentWidth = pageWidth - margin * 2;
+            let y = 18;
+
+            const letters = ['A', 'B', 'C', 'D'];
+            let correctCount = 0;
+            activeQuestions.forEach(q => {
+                if (selectedAnswers[q.id] === q.correctAnswer) correctCount++;
+            });
+            const earnedMarks = correctCount * 4;
+            const totalMarks = activeQuestions.length * 4;
+            const passed = earnedMarks >= 10;
+            const timestampStr = formatStartTimestamp(examStartTime);
+
+            function ensurePageSpace(neededHeight) {
+                if (y + neededHeight > pageHeight - 16) {
+                    doc.addPage();
+                    y = 18;
+                }
+            }
+
+            function drawWrappedText(text, x, startY, maxWidth, lineHeight, fontStyle = 'normal', fontSize = 10, color = [30, 41, 59]) {
+                doc.setFont('helvetica', fontStyle);
+                doc.setFontSize(fontSize);
+                doc.setTextColor(color[0], color[1], color[2]);
+                const lines = doc.splitTextToSize(text, maxWidth);
+                lines.forEach(line => {
+                    ensurePageSpace(lineHeight);
+                    doc.text(line, x, y);
+                    y += lineHeight;
+                });
+                return lines.length;
+            }
+
+            // Document Header Banner
+            doc.setFillColor(0, 86, 179);
+            doc.rect(margin, y - 4, contentWidth, 24, 'F');
+            doc.setTextColor(255, 255, 255);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(13);
+            doc.text('OBISL CAMPUS - PRACTICE MOCK EXAM REVIEW', margin + 4, y + 3);
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(9.5);
+            doc.text('Stage 1 - Progress Exam (Modules 1 to 4) | Faced Questions, Options & Rationale', margin + 4, y + 10);
+            doc.text(`Attempt Date: ${timestampStr}   |   Score: ${earnedMarks.toFixed(2)} / ${totalMarks.toFixed(2)} (${Math.round((earnedMarks / totalMarks) * 100)}%)   |   Status: ${passed ? 'PASSED' : 'FAILED'}`, margin + 4, y + 16);
+            y += 28;
+
+            // Loop through all 5 questions faced
+            activeQuestions.forEach((q, idx) => {
+                const userChoiceIdx = selectedAnswers[q.id];
+                const isCorrect = userChoiceIdx === q.correctAnswer;
+                const statusText = userChoiceIdx === undefined
+                    ? 'UNANSWERED (0/4 Marks)'
+                    : isCorrect
+                        ? 'CORRECT (4/4 Marks)'
+                        : 'INCORRECT (0/4 Marks)';
+
+                ensurePageSpace(35);
+
+                // Question Header Strip
+                doc.setFillColor(241, 245, 249);
+                doc.setDrawColor(203, 213, 225);
+                doc.rect(margin, y, contentWidth, 8, 'FD');
+                doc.setFont('helvetica', 'bold');
+                doc.setFontSize(10);
+                doc.setTextColor(15, 23, 42);
+                doc.text(`Question ${idx + 1} of ${activeQuestions.length}  |  ${q.moduleTag}`, margin + 3, y + 5.5);
+
+                const statusColor = userChoiceIdx === undefined ? [180, 83, 9] : isCorrect ? [4, 120, 87] : [185, 28, 28];
+                doc.setTextColor(statusColor[0], statusColor[1], statusColor[2]);
+                doc.text(statusText, pageWidth - margin - 3, y + 5.5, { align: 'right' });
+                y += 13;
+
+                // Question Prompt
+                drawWrappedText(q.questionText, margin, y, contentWidth, 5, 'bold', 10, [15, 23, 42]);
+                y += 2;
+
+                // Case Study Box
+                doc.setFont('helvetica', 'normal');
+                doc.setFontSize(9.2);
+                const scenarioLines = doc.splitTextToSize(`CASE STUDY SCENARIO: ${q.scenario}`, contentWidth - 6);
+                const scenarioBoxHeight = scenarioLines.length * 4.5 + 5;
+                ensurePageSpace(scenarioBoxHeight + 4);
+                doc.setFillColor(248, 250, 252);
+                doc.setDrawColor(0, 86, 179);
+                doc.rect(margin, y - 2, contentWidth, scenarioBoxHeight, 'FD');
+                doc.setTextColor(51, 65, 85);
+                scenarioLines.forEach((line, lIdx) => {
+                    doc.text(line, margin + 3, y + 2 + lIdx * 4.5);
+                });
+                y += scenarioBoxHeight + 3;
+
+                // Options A - D
+                q.options.forEach((opt, oIdx) => {
+                    const isThisCorrect = oIdx === q.correctAnswer;
+                    const isThisSelected = oIdx === userChoiceIdx;
+                    let suffix = '';
+                    let optColor = [30, 41, 59];
+                    let optStyle = 'normal';
+
+                    if (isThisCorrect && isThisSelected) {
+                        suffix = '  [Correct Answer - Your Selection]';
+                        optColor = [4, 120, 87];
+                        optStyle = 'bold';
+                    } else if (isThisCorrect) {
+                        suffix = '  [Correct Answer]';
+                        optColor = [4, 120, 87];
+                        optStyle = 'bold';
+                    } else if (isThisSelected) {
+                        suffix = '  [Your Selection - Incorrect]';
+                        optColor = [185, 28, 28];
+                        optStyle = 'bold';
+                    }
+
+                    drawWrappedText(`${letters[oIdx]}. ${opt}${suffix}`, margin + 2, y, contentWidth - 4, 4.7, optStyle, 9.5, optColor);
+                    y += 1.2;
+                });
+
+                y += 2;
+
+                // Answer Rationale Callout
+                doc.setFont('helvetica', 'normal');
+                doc.setFontSize(9.2);
+                const rationaleLines = doc.splitTextToSize(`Answer Rationale: ${q.rationale}`, contentWidth - 6);
+                const rationaleBoxHeight = rationaleLines.length * 4.5 + 5;
+                ensurePageSpace(rationaleBoxHeight + 6);
+                doc.setFillColor(239, 246, 255);
+                doc.setDrawColor(147, 197, 253);
+                doc.rect(margin, y - 2, contentWidth, rationaleBoxHeight, 'FD');
+                doc.setTextColor(30, 58, 138);
+                rationaleLines.forEach((line, lIdx) => {
+                    doc.text(line, margin + 3, y + 2 + lIdx * 4.5);
+                });
+                y += rationaleBoxHeight + 7;
+            });
+
+            // Footer page numbers
+            const totalPages = doc.internal.getNumberOfPages();
+            for (let p = 1; p <= totalPages; p++) {
+                doc.setPage(p);
+                doc.setFont('helvetica', 'normal');
+                doc.setFontSize(8.5);
+                doc.setTextColor(100, 116, 139);
+                doc.text(`OBISL Campus • Certificate Level Practice Mock Exam   |   Page ${p} of ${totalPages}`, pageWidth / 2, pageHeight - 8, { align: 'center' });
+            }
+
+            doc.save(`OBISL-Modules1-4-Exam-Review-${new Date().toISOString().slice(0, 10)}.pdf`);
+        }
+
+        function resetToInitial() {
+            clearInterval(timerInterval);
+            timerSeconds = 15 * 60;
+            selectedAnswers = {};
+            activeQuestions = [];
+            currentQuestionIndex = 0;
+            updateTimerDisplay();
+            showStep(1);
+        }
+
+        // Expose handlers globally
+        window.resetToInitial = resetToInitial;
+        window.startExamDirectly = startExamDirectly;
+        window.handleNextClick = handleNextClick;
+        window.confirmSkipAndProceed = confirmSkipAndProceed;
+        window.handleFinalSubmissionClick = handleFinalSubmissionClick;
+        window.confirmFinalSubmission = confirmFinalSubmission;
+        window.selectOption = selectOption;
+        window.clearChoice = clearChoice;
+        window.openModal = openModal;
+        window.closeModal = closeModal;
+        window.triggerCancelAttemptModal = triggerCancelAttemptModal;
+        window.triggerViolationModal = triggerViolationModal;
+        window.confirmCancellation = confirmCancellation;
+        window.downloadExamReview = downloadExamReview;
+
+        window.onload = function() {
+            showStep(1);
+        };
+    </script>
+</body>
+</html>
